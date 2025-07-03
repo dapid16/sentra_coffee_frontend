@@ -1,24 +1,23 @@
 // lib/utils/text_styles.dart
 
 import 'package:flutter/material.dart';
-import 'package:sentra_coffee_frontend/utils/constants.dart'; // Import AppColors
+import 'package:sentra_coffee_frontend/utils/constants.dart'; 
 
 class AppTextStyles {
-  // Gaya teks yang lo punya (jika 'Reenie Beanie' adalah custom font)
   static const TextStyle title = TextStyle(
-    fontFamily: 'Reenie Beanie', // Pastikan font ini sudah ditambahkan di pubspec.yaml
+    fontFamily: 'Reenie Beanie', 
     fontSize: 55,
     fontWeight: FontWeight.normal,
-    color: AppColors.primaryColor, // Sesuaikan warna dengan primaryColor yang baru
+    color: AppColors.primaryColor, 
   );
 
-  // Gaya teks tambahan yang digunakan di PaymentScreen (sesuai Figma)
+ 
   static const TextStyle h1 = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.bold,
     color: AppColors.textColor,
   );
-  static const TextStyle h2 = TextStyle( // Untuk "Order payment"
+  static const TextStyle h2 = TextStyle( 
     fontSize: 28,
     fontWeight: FontWeight.bold,
     color: AppColors.textColor,
@@ -28,20 +27,20 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     color: AppColors.textColor,
   );
-  static const TextStyle h4 = TextStyle( // Untuk "Alex", "Credit Card", "Pay Now"
+  static const TextStyle h4 = TextStyle( 
     fontSize: 18,
-    fontWeight: FontWeight.w600, // Semi-bold
+    fontWeight: FontWeight.w600, 
     color: AppColors.textColor,
   );
-  static const TextStyle bodyText1 = TextStyle( // Untuk "Amount", "Total Price" label
+  static const TextStyle bodyText1 = TextStyle( 
     fontSize: 16,
     fontWeight: FontWeight.normal,
     color: AppColors.textColor,
   );
-  static const TextStyle bodyText2 = TextStyle( // Untuk subtitle seperti "Dana", "Seturan"
+  static const TextStyle bodyText2 = TextStyle( 
     fontSize: 14,
     fontWeight: FontWeight.normal,
-    color: AppColors.greyText, // Menggunakan warna abu-abu untuk teks kecil
+    color: AppColors.greyText,
   );
   static const TextStyle caption = TextStyle(
     fontSize: 12,

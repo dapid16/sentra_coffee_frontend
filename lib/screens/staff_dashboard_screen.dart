@@ -17,10 +17,10 @@ class StaffDashboardScreen extends StatefulWidget {
 class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
   int _selectedIndex = 0;
 
-  // Daftar halaman untuk bottom navigation bar
+  
   final List<Widget> _pages = [
-    const _StaffDashboardHomePage(), // Widget untuk konten utama
-    const AdminOrderHistoryScreen(), // Halaman riwayat transaksi yang sama dengan admin
+    const _StaffDashboardHomePage(), 
+    const AdminOrderHistoryScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -134,7 +134,6 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
   }
 }
 
-// Widget terpisah untuk konten utama dashboard staff
 class _StaffDashboardHomePage extends StatelessWidget {
   const _StaffDashboardHomePage({Key? key}) : super(key: key);
 

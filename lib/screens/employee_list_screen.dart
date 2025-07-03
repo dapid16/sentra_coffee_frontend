@@ -53,7 +53,6 @@ class _EmployeeListScreenState extends State<EmployeeListScreen> {
     });
   }
 
-  // <<< FUNGSI BARU UNTUK MENGHAPUS STAFF >>>
   Future<void> _deleteStaff(Staff staff) async {
     final bool? confirm = await showDialog(
       context: context,
@@ -80,7 +79,7 @@ class _EmployeeListScreenState extends State<EmployeeListScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Staff berhasil dihapus!'), backgroundColor: Colors.green),
           );
-          _loadStaff(); // Muat ulang daftar staff setelah berhasil hapus
+          _loadStaff(); 
         } else {
           throw Exception('Gagal menghapus staff dari server.');
         }

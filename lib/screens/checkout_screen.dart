@@ -1,9 +1,9 @@
-// lib/screens/checkout_screen.dart (REVISI NAVIGASI KE PAYMENT SCREEN)
+// lib/screens/checkout_screen.dart 
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sentra_coffee_frontend/models/menu.dart';
-import 'package:sentra_coffee_frontend/screens/payment_admin_screen.dart'; // <<< IMPORT HALAMAN PAYMENT
+import 'package:sentra_coffee_frontend/screens/payment_admin_screen.dart'; 
 import 'package:sentra_coffee_frontend/screens/product_options_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
@@ -23,7 +23,6 @@ class CheckoutScreen extends StatefulWidget {
 class _CheckoutScreenState extends State<CheckoutScreen> {
   late List<TransactionCartItem> _editableOrderItems;
   late double _currentTotalPrice;
-  // bool _isLoading tidak kita perlukan lagi di sini
 
   @override
   void initState() {
@@ -87,7 +86,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     return NumberFormat.currency(locale: 'id_ID', symbol: 'Rp', decimalDigits: 0).format(amount);
   }
 
-  // Fungsi _processPayment dihapus dari sini karena logikanya pindah ke PaymentScreen
 
   @override
   Widget build(BuildContext context) {
@@ -118,9 +116,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 itemCount: _editableOrderItems.length,
                 itemBuilder: (context, index) {
                   final item = _editableOrderItems[index];
-                  // Kita gunakan Dismissible untuk fitur geser-hapus
                   return Dismissible(
-                    key: ValueKey(item), // Kunci unik
+                    key: ValueKey(item), 
                     direction: DismissDirection.endToStart,
                     onDismissed: (direction) {
                       _handleDeleteItem(index);
@@ -149,14 +146,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     );
   }
 
-  // Di dalam file checkout_screen.dart
+
 
 Widget _buildCartItem(TransactionCartItem item, int index) {
-  // --- Definisikan base URL untuk folder gambar kamu ---
-  // Pastikan ini sesuai dengan struktur folder di XAMPP
   final String imageBaseUrl = "http://localhost/SentraCoffee/uploads/";
 
-  // Gabungkan baseUrl dengan nama file dari database
   final String? imageUrl = (item.menu.image != null && item.menu.image!.isNotEmpty)
       ? imageBaseUrl + item.menu.image!
       : null;
@@ -184,7 +178,6 @@ Widget _buildCartItem(TransactionCartItem item, int index) {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              // --- Tampilkan gambar dari URL yang sudah benar ---
               child: (imageUrl != null)
                   ? Image.network(
                       imageUrl,
@@ -192,7 +185,6 @@ Widget _buildCartItem(TransactionCartItem item, int index) {
                       height: 60,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
-                        // Tampilan jika gambar gagal di-load
                         return Container(width: 60, height: 60, color: Colors.grey[200], child: const Icon(Icons.broken_image));
                       },
                     )
@@ -238,9 +230,7 @@ Widget _buildCartItem(TransactionCartItem item, int index) {
           SizedBox(
             height: 50,
             child: ElevatedButton.icon(
-              // --- PERUBAHAN UTAMA DI SINI ---
               onPressed: () {
-                // Pindah ke PaymentScreen sambil bawa data keranjang terbaru
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) => PaymentAdminScreen(
                     orderItems: _editableOrderItems, 

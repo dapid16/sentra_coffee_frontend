@@ -169,8 +169,6 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   Widget _buildCartItemCard(CartItem item) {
-    // <<< PERUBAHAN UTAMA DI SINI >>>
-    // Logika perhitungan harga per item disesuaikan dengan ukuran
     double price = item.pricePerItem;
     String customizations = item.customizations.toLowerCase();
 
@@ -181,7 +179,6 @@ class _CartScreenState extends State<CartScreen> {
     }
     
     final double totalItemPrice = price * item.quantity;
-    // --- Batas Perubahan ---
 
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
@@ -234,7 +231,6 @@ class _CartScreenState extends State<CartScreen> {
               ),
             ),
             const SizedBox(width: 16),
-            // Tampilkan harga per item yang sudah benar
             Text(
               formatRupiah(totalItemPrice),
               style: AppTextStyles.h4.copyWith(color: AppColors.textColor),

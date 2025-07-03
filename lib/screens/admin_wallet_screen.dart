@@ -92,7 +92,6 @@ class _WalletScreenState extends State<WalletScreen> {
               style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 8),
-            // Loop untuk menampilkan breakdown metode pembayaran
             ...report.breakdown.entries.map((entry) {
               return Padding(
                 padding: const EdgeInsets.only(left: 16.0, bottom: 4.0),
@@ -100,7 +99,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   children: [
                     const Text('• ', style: TextStyle(fontSize: 16)),
                     SizedBox(
-                      width: 100, // Atur lebar agar titik dua sejajar
+                      width: 100, 
                       child: Text(entry.key, style: const TextStyle(fontSize: 16)),
                     ),
                     const Text(': ', style: TextStyle(fontSize: 16)),

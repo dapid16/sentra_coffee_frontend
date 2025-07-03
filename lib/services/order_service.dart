@@ -61,8 +61,6 @@ class OrderService with ChangeNotifier {
     }
   }
 
-  // <<< TAMBAHKAN FUNGSI BARU INI >>>
-  // Fungsi untuk membersihkan data pesanan dari state
   void clearOrders() {
     _allOrders = [];
     _errorMessage = null;

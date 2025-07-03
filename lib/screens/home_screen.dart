@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<List<Menu>> _menuFuture;
   final ApiService apiService = ApiService();
 
-  final String _imageBaseUrl = 'http://192.168.100.168/SentraCoffee/uploads/';
+  final String _imageBaseUrl = 'http://localhost/SentraCoffee/uploads/';
 
   @override
   void initState() {

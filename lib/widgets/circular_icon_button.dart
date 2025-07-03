@@ -1,7 +1,7 @@
 // lib/widgets/circular_icon_button.dart
 
 import 'package:flutter/material.dart';
-import 'package:sentra_coffee_frontend/utils/constants.dart'; // Import AppColors
+import 'package:sentra_coffee_frontend/utils/constants.dart'; 
 
 class CircularIconButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -14,10 +14,10 @@ class CircularIconButton extends StatelessWidget {
   const CircularIconButton({
     Key? key,
     required this.onPressed,
-    this.icon = Icons.arrow_forward, // Default icon panah ke kanan
-    this.size = 60.0, // Ukuran default lingkaran
-    this.backgroundColor = AppColors.primaryColor, // Default warna hitam
-    this.iconColor = Colors.white, // Default warna ikon putih
+    this.icon = Icons.arrow_forward, 
+    this.size = 60.0, 
+    this.backgroundColor = AppColors.primaryColor, 
+    this.iconColor = Colors.white, 
     this.elevation = 5.0,
   }) : super(key: key);
 
@@ -36,7 +36,7 @@ class CircularIconButton extends StatelessWidget {
           child: Icon(
             icon,
             color: iconColor,
-            size: size * 0.5, // Ukuran ikon setengah dari ukuran tombol
+            size: size * 0.5, 
           ),
         ),
       ),

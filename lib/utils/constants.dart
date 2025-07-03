@@ -4,28 +4,26 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class AppColors {
-  // Warna Utama (misalnya untuk tombol, harga total, radio button aktif)
-  // Berdasarkan Figma, ini terlihat seperti cokelat gelap atau hampir hitam
-  static const Color primaryColor = Color(0xFF5D4037); // Contoh Cokelat Kopi Gelap (deep brown)
-  static const Color secondaryColor = Color(0xFFD2B48C); // Contoh warna pendukung (Tan) - dari sebelumnya, bisa disesuaikan
+  static const Color primaryColor = Color(0xFF5D4037); 
+  static const Color secondaryColor = Color(0xFFD2B48C); 
 
   // Warna Background
-  static const Color lightGreyBackground = Color(0xFFF5F5F5); // Background abu muda dari Figma
-  static const Color backgroundColor = Color(0xFFFFFFFF); // Putih (untuk card, seperti di Figma)
+  static const Color lightGreyBackground = Color(0xFFF5F5F5); 
+  static const Color backgroundColor = Color(0xFFFFFFFF); 
 
   // Warna Teks
-  static const Color textColor = Color(0xFF333333); // Teks Umum (dark grey)
-  static const Color darkGrey = Color(0xFF424242); // Teks abu-abu gelap (seperti di "My order" title)
-  static const Color greyText = Color(0xFF757575); // Teks abu-abu ringan (seperti "Seturan", subtitle)
+  static const Color textColor = Color(0xFF333333); 
+  static const Color darkGrey = Color(0xFF424242); 
+  static const Color greyText = Color(0xFF757575); 
 
-  // ...Jika ada warna lain di Figma lo yang belum ada, bisa ditambahkan di sini
+
 }
 
 String formatRupiah(double amount) {
   final NumberFormat formatter = NumberFormat.currency(
-    locale: 'id_ID', // Untuk format Indonesia
-    symbol: 'Rp',    // Simbol mata uang
-    decimalDigits: 0, // Tidak ada digit desimal
+    locale: 'id_ID', 
+    symbol: 'Rp',   
+    decimalDigits: 0, 
   );
   return formatter.format(amount);
 }

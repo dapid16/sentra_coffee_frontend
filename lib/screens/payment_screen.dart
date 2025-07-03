@@ -132,7 +132,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
       final success = await apiService.createTransaction(
         customerId: authService.loggedInCustomer!.idCustomer,
-        staffId: 1, // Asumsi ID Staff default untuk transaksi online
+        staffId: 1, 
         paymentMethod: _isRedeemingPoints ? 'Points' : _selectedPaymentMethod,
         totalAmount: _finalTotal,
         items: transactionItems,

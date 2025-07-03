@@ -36,7 +36,6 @@ class _ProductOptionsScreenState extends State<ProductOptionsScreen> {
         case 'large': _volumeSelection = 2; break;
         default: _volumeSelection = 1; break;
       }
-      // Di sini lo bisa tambahin mapping utk ristretto & serving style jika diperlukan
     }
     _calculatePrice();
   }
@@ -45,9 +44,9 @@ class _ProductOptionsScreenState extends State<ProductOptionsScreen> {
     double basePrice = widget.menu.harga;
     double sizeMultiplier = 1.0;
 
-    if (_volumeSelection == 0) { // Small
+    if (_volumeSelection == 0) { 
       sizeMultiplier = 0.8;
-    } else if (_volumeSelection == 2) { // Large
+    } else if (_volumeSelection == 2) { 
       sizeMultiplier = 1.2;
     }
 

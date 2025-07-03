@@ -19,7 +19,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int _quantity = 1;
   String _selectedRistretto = 'One';
   String _selectedOrderType = 'Onsite';
-  String _selectedVolume = 'Medium'; // Default size
+  String _selectedVolume = 'Medium'; 
   bool _prepareByTime = false;
   TimeOfDay _selectedTime = TimeOfDay.now();
   double _totalAmount = 0.0;
@@ -33,16 +33,15 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   void _calculateTotalAmount() {
     double basePrice = (widget.product['harga'] as num?)?.toDouble() ?? 0.0;
     
-    // Logika untuk pengali harga berdasarkan ukuran
-    double sizeMultiplier = 1.0; // Default untuk Medium
+   
+    double sizeMultiplier = 1.0; 
     if (_selectedVolume == 'Small') {
-      sizeMultiplier = 0.8; // Diskon 20% untuk ukuran Small
+      sizeMultiplier = 0.8; 
     } else if (_selectedVolume == 'Large') {
-      sizeMultiplier = 1.2; // Tambahan 20% untuk ukuran Large
+      sizeMultiplier = 1.2; 
     }
 
     setState(() {
-      // Harga dihitung dengan mengalikan harga dasar, pengali ukuran, dan kuantitas
       _totalAmount = (basePrice * sizeMultiplier) * _quantity;
     });
   }

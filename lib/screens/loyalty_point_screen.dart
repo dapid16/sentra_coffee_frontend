@@ -24,7 +24,6 @@ class _LoyaltyPointScreenState extends State<LoyaltyPointScreen> {
   @override
   void initState() {
     super.initState();
-    // Ambil customerId dari AuthService dan panggil API
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final authService = Provider.of<AuthService>(context, listen: false);
       if (authService.isLoggedIn) {
@@ -49,7 +48,6 @@ class _LoyaltyPointScreenState extends State<LoyaltyPointScreen> {
           backgroundColor: Colors.green,
         ),
       );
-      // Pindah ke halaman menu/home
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => const HomeScreen()),
@@ -99,7 +97,6 @@ class _LoyaltyPointScreenState extends State<LoyaltyPointScreen> {
                     style: AppTextStyles.h3.copyWith(color: AppColors.textColor),
                   ),
                   const SizedBox(height: 15),
-                  // Widget untuk menampilkan riwayat dari API
                   _buildHistoryList(),
                 ],
               ),
@@ -136,7 +133,6 @@ class _LoyaltyPointScreenState extends State<LoyaltyPointScreen> {
               child: SizedBox(
                 height: 35,
                 child: ElevatedButton(
-                  // --- FUNGSI REDEEM DIPANGGIL DI SINI ---
                   onPressed: () => _handleRedeem(context, current, target),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryColor,

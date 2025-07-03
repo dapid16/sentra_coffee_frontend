@@ -1,14 +1,14 @@
-// lib/screens/login_screen.dart (DENGAN LOGIKA STAFF)
+// lib/screens/login_screen.dart 
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sentra_coffee_frontend/models/customer.dart';
 import 'package:sentra_coffee_frontend/models/owner.dart';
-import 'package:sentra_coffee_frontend/models/staff.dart'; // <<< TAMBAH IMPORT MODEL STAFF
+import 'package:sentra_coffee_frontend/models/staff.dart'; 
 import 'package:sentra_coffee_frontend/services/api_service.dart';
 import 'package:sentra_coffee_frontend/services/auth_service.dart';
 import 'package:sentra_coffee_frontend/services/admin_auth_service.dart';
-import 'package:sentra_coffee_frontend/services/staff_auth_service.dart'; // <<< TAMBAH IMPORT SERVICE STAFF
+import 'package:sentra_coffee_frontend/services/staff_auth_service.dart'; 
 import 'package:sentra_coffee_frontend/main.dart';
 import 'package:sentra_coffee_frontend/utils/constants.dart';
 import 'package:sentra_coffee_frontend/utils/text_styles.dart';
@@ -59,14 +59,11 @@ class _LoginScreenState extends State<LoginScreen> {
       } else if (role == 'customer') {
         Provider.of<AuthService>(context, listen: false)
             .loginWithCustomerData(Customer.fromJson(data));
-      // --- PERUBAHAN DI SINI: Tambahkan penanganan untuk role 'staff' ---
       } else if (role == 'staff') {
         Provider.of<StaffAuthService>(context, listen: false)
             .loginWithStaffData(Staff.fromJson(data));
       }
-      // --- BATAS PERUBAHAN ---
 
-      // Navigasi ke AuthWrapper yang akan menentukan halaman tujuan
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (context) => const AuthWrapper()),
@@ -86,7 +83,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // KODE UI TIDAK ADA YANG BERUBAH, SAYA TAMPILKAN SEBAGAI RINGKASAN
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(

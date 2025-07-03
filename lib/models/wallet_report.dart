@@ -23,7 +23,6 @@ class WalletReport {
       monthName: json["month_name"],
       totalRevenue: json["total_revenue"],
       comparison: json["comparison"],
-      // Konversi Map<String, dynamic> ke Map<String, String>
       breakdown: Map<String, String>.from(json["breakdown"]),
     );
   }

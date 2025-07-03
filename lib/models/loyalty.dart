@@ -22,8 +22,8 @@ class LoyaltyService extends ChangeNotifier {
   int _currentPoints = 280;
   final int _targetPoints = 25000;
 
-  // --- TAMBAHKAN FLAG INI ---
-  bool _isRedeeming = false; // Flag untuk menandai apakah user dalam mode redeem
+  
+  bool _isRedeeming = false; 
 
   final List<RewardHistoryItem> _history = [
     RewardHistoryItem(
@@ -43,10 +43,9 @@ class LoyaltyService extends ChangeNotifier {
   int get currentPoints => _currentPoints;
   int get targetPoints => _targetPoints;
   List<RewardHistoryItem> get history => List.unmodifiable(_history);
-  bool get isRedeeming => _isRedeeming; // Getter untuk flag isRedeeming
+  bool get isRedeeming => _isRedeeming; 
 
-  // Metode untuk memulai/mengakhiri mode redeem
-  void setRedeeming(bool value) {
+    void setRedeeming(bool value) {
     _isRedeeming = value;
     notifyListeners();
     print('Redeem Mode: $_isRedeeming');
@@ -69,7 +68,7 @@ class LoyaltyService extends ChangeNotifier {
     }
   }
 
-  // Metode untuk mengurangi poin (digunakan saat pembayaran redeem)
+  
   bool deductPoints(int pointsToDeduct) {
     if (_currentPoints >= pointsToDeduct) {
       _currentPoints -= pointsToDeduct;
@@ -87,29 +86,16 @@ class LoyaltyService extends ChangeNotifier {
     return false;
   }
 
-  // UBAH: method redeemPoints di sini HANYA untuk validasi dan mulai mode redeem
-  // Poin tidak dipotong di sini lagi!
-  bool initiateRedeemProcess() { // Ganti nama biar jelas fungsinya
+  
+  bool initiateRedeemProcess() { 
     if (_currentPoints >= _targetPoints) {
-      setRedeeming(true); // Aktifkan mode redeem
+      setRedeeming(true); 
       print('Redeem process initiated!');
-      return true; // Poin cukup, proses redeem dimulai
+      return true; 
     }
     print('Poin tidak cukup untuk redeem.');
-    return false; // Poin tidak cukup
+    return false; 
   }
 
-  // Metode tambahan (opsional)
-  // void addSpecificPoints(String description, int points) {
-  //   _currentPoints += points;
-  //   _history.insert(0,
-  //     RewardHistoryItem(
-  //       id: _uuid.v4(),
-  //       description: description,
-  //       points: points,
-  //       date: DateTime.now(),
-  //     ),
-  //   );
-  //   notifyListeners();
-  // }
+  
 }

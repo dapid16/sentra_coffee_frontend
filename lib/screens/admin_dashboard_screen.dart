@@ -108,7 +108,6 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       builder: (context) => const NewTransactionScreen()),
                 );
                 if (mounted) {
-                  // Memicu refresh data di kedua halaman setelah transaksi
                   Provider.of<AdminOrderService>(context, listen: false).fetchOrders();
                   _homePageKey.currentState?.refreshReports();
                 }

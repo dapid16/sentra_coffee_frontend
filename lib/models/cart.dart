@@ -39,21 +39,21 @@ class CartService extends ChangeNotifier {
 
   List<CartItem> get items => List.unmodifiable(_items);
 
-  // <<< PERUBAHAN UTAMA ADA DI SINI >>>
+  
   double get totalPrice {
     return _items.fold(0.0, (sum, item) {
-      // Ambil harga dasar
+      
       double price = item.pricePerItem;
       String customizations = item.customizations.toLowerCase();
 
-      // Terapkan pengali harga berdasarkan ukuran dari string kustomisasi
+      
       if (customizations.contains('small')) {
         price *= 0.8;
       } else if (customizations.contains('large')) {
         price *= 1.2;
       }
       
-      // Kembalikan total yang sudah disesuaikan
+      
       return sum + (price * item.quantity);
     });
   }

@@ -7,7 +7,6 @@ import 'package:sentra_coffee_frontend/models/customer.dart';
 import 'package:sentra_coffee_frontend/services/api_service.dart';
 
 class AuthService with ChangeNotifier {
-  // --- PERBAIKAN #1: Deklarasikan ApiService di sini ---
   final ApiService _apiService = ApiService();
 
   Customer? _loggedInCustomer;
@@ -65,34 +64,22 @@ class AuthService with ChangeNotifier {
     }
   }
 
-  // --- PERBAIKAN #2: Perbaiki fungsi refresh ---
   Future<void> refreshLoggedInCustomerData() async {
     if (isLoggedIn) {
-      // Panggil fungsi dari _apiService yang sudah dideklarasikan di atas
       final updatedCustomer =
           await _apiService.fetchOneCustomer(loggedInCustomer!.idCustomer);
-
-      // Print #1: Cek data poin dari objek yang baru di-fetch
       print(
           "---[AuthService] Updated customer object points: ${updatedCustomer?.points}");
 
       if (updatedCustomer != null) {
-        // Assign ke variabel private _loggedInCustomer, bukan getter-nya
         _loggedInCustomer = updatedCustomer;
 
-        // Simpan juga data terbaru ke SharedPreferences agar sesi tetap update
         final prefs = await SharedPreferences.getInstance();
-
-        // Siapkan data JSON yang akan disimpan
         final jsonToSave = json.encode(_loggedInCustomer!.toJson());
-
-        // Print #2: Cek data JSON yang akan disimpan ke HP
         print(
             "---[AuthService] JSON to be saved in SharedPreferences: $jsonToSave");
 
         await prefs.setString('loggedInCustomer', jsonToSave);
-
-        // Beri tahu UI untuk update tampilan
         notifyListeners();
       }
     }

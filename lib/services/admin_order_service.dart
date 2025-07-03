@@ -17,7 +17,6 @@ class AdminOrderService with ChangeNotifier {
   Future<void> fetchOrders() async {
     _isLoading = true;
     _errorMessage = null;
-    // Notify listeners di awal agar UI bisa menampilkan loading indicator
     notifyListeners();
 
     try {

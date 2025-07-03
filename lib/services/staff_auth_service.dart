@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sentra_coffee_frontend/models/staff.dart'; // Pastikan path ke model Staff benar
+import 'package:sentra_coffee_frontend/models/staff.dart'; 
 
 class StaffAuthService with ChangeNotifier {
   Staff? _currentStaff;
@@ -11,7 +11,7 @@ class StaffAuthService with ChangeNotifier {
   void loginWithStaffData(Staff staff) {
     _currentStaff = staff;
     _isLoggedIn = true;
-    notifyListeners(); // Beri tahu UI bahwa state berubah
+    notifyListeners(); 
   }
 
   void logout() {

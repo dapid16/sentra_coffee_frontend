@@ -1,4 +1,4 @@
-// lib/screens/admin/add_employee_screen.dart (SESUAI DESAIN FIGMA)
+// lib/screens/admin/add_employee_screen.dart 
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -67,7 +67,7 @@ class _AddEmployeeScreenState extends State<AddEmployeeScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Karyawan baru berhasil ditambahkan!'), backgroundColor: Colors.green),
         );
-        Navigator.of(context).pop(true); // Kembali dengan sinyal sukses
+        Navigator.of(context).pop(true); 
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Gagal menambahkan karyawan.'), backgroundColor: Colors.red),
@@ -121,7 +121,6 @@ class _AddEmployeeScreenState extends State<AddEmployeeScreen> {
                       labelText: 'Position',
                     ),
                     const SizedBox(height: 24),
-                    // --- FIELD PASSWORD YANG DITAMBAHKAN ---
                     TextFormField(
                       controller: _passwordController,
                       obscureText: _obscureText,
@@ -146,7 +145,6 @@ class _AddEmployeeScreenState extends State<AddEmployeeScreen> {
               ),
             ),
           ),
-          // --- TOMBOL ADD DI BAGIAN BAWAH ---
           Padding(
             padding: const EdgeInsets.all(24.0),
             child: SizedBox(
@@ -172,8 +170,7 @@ class _AddEmployeeScreenState extends State<AddEmployeeScreen> {
     );
   }
 
-  // Helper untuk input text sesuai desain
-  Widget _buildTextField({required TextEditingController controller, required String labelText, TextInputType? keyboardType}) {
+    Widget _buildTextField({required TextEditingController controller, required String labelText, TextInputType? keyboardType}) {
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,

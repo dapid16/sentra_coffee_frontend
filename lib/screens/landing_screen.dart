@@ -1,10 +1,8 @@
 // lib/screens/landing_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:async'; // Import untuk menggunakan Timer
-
-// Import halaman login yang akan dituju
-import 'package:sentra_coffee_frontend/screens/login_screen.dart'; // Sesuaikan path jika berbeda
+import 'dart:async'; 
+import 'package:sentra_coffee_frontend/screens/login_screen.dart'; 
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -17,15 +15,11 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   void initState() {
     super.initState();
-    // Panggil fungsi untuk navigasi setelah beberapa detik
     _navigateToLogin();
   }
 
   void _navigateToLogin() {
-    // Memberikan delay selama 3 detik (sesuaikan durasi sesuai keinginan)
     Future.delayed(const Duration(seconds: 3), () {
-      // Menggunakan Navigator.pushReplacement untuk mengganti halaman saat ini
-      // sehingga user tidak bisa kembali ke splash screen dengan tombol back
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const LoginScreen(),
@@ -36,18 +30,16 @@ class _LandingScreenState extends State<LandingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Opsional: Untuk membuat status bar transparan agar background image terlihat penuh
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-      statusBarColor: Colors.transparent, // Warna status bar transparan
+      statusBarColor: Colors.transparent, 
       statusBarIconBrightness:
-          Brightness.light, // Warna ikon status bar (untuk mode gelap)
+          Brightness.light, 
     ));
 
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Lapis 1: background image
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -57,13 +49,10 @@ class _LandingScreenState extends State<LandingScreen> {
             ),
           ),
 
-          // Lapis 2: semi‐transparent overlay
           Container(
             color:
-                Colors.black.withOpacity(0.55), // Meningkatkan opasitas sedikit
+                Colors.black.withOpacity(0.55), 
           ),
-
-          // Lapis 3: Konten utama (Logo + Judul)
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
@@ -83,7 +72,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     'Coffee & Community',
                     style: TextStyle(
                       fontFamily:
-                          'Montserrat', // Asumsi: pakai font standar atau font lain
+                          'Montserrat', 
                       fontSize: 16,
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
@@ -99,7 +88,6 @@ class _LandingScreenState extends State<LandingScreen> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  // Tombol yang tadi ada di sini sekarang kita hapus, karena otomatis
                 ],
               ),
             ),

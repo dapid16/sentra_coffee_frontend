@@ -2,9 +2,6 @@
 
 import 'dart:convert';
 
-//==================================================================
-// MODEL UTAMA: MENU PRODUK (BUKU MENU)
-//==================================================================
 List<Menu> menuFromJson(String str) =>
     List<Menu>.from(json.decode(str)["records"].map((x) => Menu.fromJson(x)));
 
@@ -49,13 +46,6 @@ class Menu {
 }
 
 
-//==================================================================
-// MODEL TAMBAHAN: UNTUK TRANSAKSI (CATETAN PESANAN)
-// Model-model ini kita "nebeng" di file menu.dart biar nggak usah bikin file baru.
-//==================================================================
-
-
-// Model untuk item yang ada di keranjang/cart
 class TransactionCartItem {
   final Menu menu;
   int quantity;
@@ -73,7 +63,6 @@ class TransactionCartItem {
 }
 
 
-// Model untuk "jembatan" data yang dibawa dari ProductOptionsScreen
 class CustomizedOrderItem {
   final Menu menu;
   final int quantity;

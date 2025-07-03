@@ -1,4 +1,4 @@
-// lib/models/order.dart (VERSI FINAL v2 - PARSING LEBIH PINTAR)
+// lib/models/order.dart 
 
 import 'dart:convert';
 
@@ -19,8 +19,6 @@ class TransactionDetail {
   factory TransactionDetail.fromJson(Map<String, dynamic> json) {
     return TransactionDetail(
       namaMenu: json["nama_menu"],
-      // --- DIBUAT LEBIH AMAN ---
-      // Ubah dulu ke String, baru di-parse ke int, untuk menghindari error jika datanya String atau int
       quantity: int.parse(json["quantity"].toString()),
       subtotal: json["subtotal"],
     );
@@ -52,8 +50,6 @@ class Order {
         detailsList.map((i) => TransactionDetail.fromJson(i)).toList();
 
     return Order(
-      // --- DIBUAT LEBIH AMAN DENGAN .toString() ---
-      // Apapun tipe datanya dari backend (int atau String), akan diubah jadi String di Dart.
       idTransaction: json["id_transaction"].toString(),
       transactionDate: json["transaction_date"].toString(),
       paymentMethod: json["payment_method"].toString(),

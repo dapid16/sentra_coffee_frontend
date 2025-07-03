@@ -113,8 +113,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   style: AppTextStyles.bodyText1.copyWith(color: AppColors.greyText),
                 ),
                 const SizedBox(height: 50),
-
-                // --- TAMBAHKAN INPUT FIELD NAMA DI SINI ---
                 _buildTextField(
                   controller: _nameController,
                   labelText: 'Nama Lengkap',
@@ -127,10 +125,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 20), // Jarak ke field berikutnya
-                // --- AKHIR TAMBAH INPUT FIELD NAMA ---
+                const SizedBox(height: 20),
 
-                // Mobile Number
                 _buildTextField(
                   controller: _phoneController,
                   labelText: 'Mobile Number',
@@ -148,7 +144,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // Email address
+          
                 _buildTextField(
                   controller: _emailController,
                   labelText: 'Email address',
@@ -166,7 +162,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // Password
                 _buildTextField(
                   controller: _passwordController,
                   labelText: 'Password',

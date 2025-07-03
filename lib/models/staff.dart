@@ -2,7 +2,7 @@
 
 import 'dart:convert';
 
-// Helper function untuk mengubah JSON String menjadi List<Staff>
+
 List<Staff> staffFromJson(String str) =>
     List<Staff>.from(json.decode(str)["records"].map((x) => Staff.fromJson(x)));
 
@@ -11,8 +11,7 @@ class Staff {
   final String namaStaff;
   final String email;
   final String? noHp;
-  final String role; // Role yang kita tambahkan di backend
-  // Kita tambahkan properti gambar untuk persiapan di masa depan
+  final String role; 
   final String? gambar; 
 
   Staff({

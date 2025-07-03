@@ -11,7 +11,6 @@ class Owner {
     required this.email,
   });
 
-  // Factory constructor untuk membuat objek Owner dari JSON
   factory Owner.fromJson(Map<String, dynamic> json) {
     return Owner(
       idOwner: json['id_owner'],

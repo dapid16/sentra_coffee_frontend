@@ -1,4 +1,4 @@
-// lib/screens/order_history_screen.dart (VERSI TANPA "ON GOING")
+// lib/screens/order_history_screen.dart 
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,16 +14,11 @@ class OrderHistoryScreen extends StatefulWidget {
   State<OrderHistoryScreen> createState() => _OrderHistoryScreenState();
 }
 
-// --- PERUBAHAN #1: Hapus `with SingleTickerProviderStateMixin` karena TabController tidak dipakai lagi ---
 class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
-  // --- PERUBAHAN #2: Hapus TabController ---
-  // late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    // --- PERUBAHAN #3: Hapus inisialisasi TabController ---
-    // _tabController = TabController(length: 2, vsync: this);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
@@ -37,13 +32,6 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
       }
     });
   }
-
-  // --- PERUBAHAN #4: Hapus dispose untuk TabController ---
-  // @override
-  // void dispose() {
-  //   _tabController.dispose();
-  //   super.dispose();
-  // }
 
   String _formatDate(String dateString) {
     try {
@@ -72,15 +60,13 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
             backgroundColor: Colors.white,
             elevation: 1,
             title: const Text(
-              'My Orders', // Atau ganti jadi 'Order History'
+              'My Orders', 
               style:
                   TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
             centerTitle: true,
-            // --- PERUBAHAN #5: Hapus `bottom` yang berisi TabBar ---
-          ),
-          // --- PERUBAHAN #6: Ganti TabBarView menjadi tampilan langsung untuk history ---
-          body: orderService.isLoading
+                 ),
+                   body: orderService.isLoading
               ? const Center(
                   child: CircularProgressIndicator(color: Colors.brown))
               : orderService.errorMessage != null
@@ -95,7 +81,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
     if (orders.isEmpty) {
       return const Center(
         child: Text(
-          'No order history yet!', // Teks disesuaikan
+          'No order history yet!', 
           style: TextStyle(color: Colors.grey, fontSize: 16),
         ),
       );

@@ -68,7 +68,6 @@ class _AdminOrderHistoryScreenState extends State<AdminOrderHistoryScreen> {
     String servedBy;
     IconData servedByIcon;
     
-    // Logika untuk menentukan siapa yang memproses transaksi
     if (order.staffName != null && order.staffName != 'radja') {
       servedBy = "Oleh Staff: ${order.staffName}";
       servedByIcon = Icons.person_outline;

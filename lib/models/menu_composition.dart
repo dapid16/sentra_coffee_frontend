@@ -19,7 +19,6 @@ class MenuComposition {
         idRawMaterial: json["id_raw_material"],
         namaBahan: json["nama_bahan"],
         unit: json["unit"],
-        // <<< PERBAIKAN DI SINI >>>
         quantityNeeded: double.parse(json["quantity_needed"].toString()),
       );
 

@@ -1,4 +1,4 @@
-// lib/models/customer.dart
+
 
 import 'dart:convert';
 
@@ -14,7 +14,7 @@ class Customer {
     required this.nama,
     required this.email,
     this.noHp,
-    this.points = 0, // <<< Dibuat opsional dengan nilai default 0
+    this.points = 0, 
   });
 
   factory Customer.fromJson(Map<String, dynamic> json) {
@@ -23,7 +23,7 @@ class Customer {
       nama: json['nama'] ?? '',
       email: json['email'] ?? '',
       noHp: json['no_hp'],
-      // <<< Dibuat lebih aman dengan tryParse
+     
       points: int.tryParse(json['points']?.toString() ?? '0') ?? 0,
     );
   }
@@ -34,7 +34,7 @@ class Customer {
       'nama': nama,
       'email': email,
       'no_hp': noHp,
-      'points': points, // Ini sudah benar
+      'points': points,
     };
   }
 }
